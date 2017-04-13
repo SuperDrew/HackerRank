@@ -28,17 +28,5 @@
             var result = Sort.DoIt(value);
             Assert.That(result, Is.EqualTo("No"), "Should not have been sortable, output of sort was: " + value);
         }
-
-        private static int[] GenerateSortable(int length)
-        {
-            // Create ordered array
-            var value = new int[length];
-            for (var i = 0; i < length; i++)
-            {
-                value[i] = i;
-            }
-
-            // Randomly swap adjacent members of array
-        }
     }
 }
