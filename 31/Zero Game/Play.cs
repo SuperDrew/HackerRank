@@ -7,8 +7,9 @@ namespace _31.Zero_Game
         private const string Alice = "Alice";
         private const string Bob = "Bob";
 
-        public static string Go(int[] sequence)
+        public static string Go(int[] values)
         {
+            var sequence = new List<int>(values);
             var player = Alice;
             bool canRemoveElement = false;
             do
@@ -16,7 +17,7 @@ namespace _31.Zero_Game
                 canRemoveElement = false;
                 // Find element that can be removed
                 int indexToRemove = 0;
-                for (int i = 0; i < sequence.Length - 2; i++)
+                for (int i = 0; i < sequence.Count - 2; i++)
                 {
                     var leftSideValue = sequence[i];
                     var rightSideValue = sequence[i + 2];
@@ -31,9 +32,7 @@ namespace _31.Zero_Game
                 // Remove index
                 if (canRemoveElement)
                 {
-                    var list = new List<int>(sequence);
-                    list.RemoveAt(indexToRemove);
-                    sequence = list.ToArray();
+                    sequence.RemoveAt(indexToRemove);
                 }
 
                 // Swop player

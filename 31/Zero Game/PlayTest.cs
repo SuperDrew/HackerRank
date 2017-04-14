@@ -16,6 +16,7 @@
         [TestCase(new[] { 0, 0 }, Bob, TestName = "n = 2")]
         [TestCase(new[] { 0, 1, 0 }, Alice, TestName = "n = 3, one swap available")]
         [TestCase(new[] { 0, 1, 1 }, Bob, TestName = "n = 3, no swap available")]
+        [TestCase(new[] { 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1 }, Bob, TestName = "n = lots, not sure who should win")]
         public void Test(int[] value, string expectedWinner)
         {
             var winner = Play.Go(value);
