@@ -25,20 +25,12 @@ namespace _31.Zero_Game
                     {
                         indexToRemove = i + 1;
                         canRemoveElement = true;
+                        // Remove index
+                        sequence.RemoveAt(indexToRemove);
+                        // Swop player
+                        player = PickOtherPlayer(player);
                         break;
                     }
-                }
-
-                // Remove index
-                if (canRemoveElement)
-                {
-                    sequence.RemoveAt(indexToRemove);
-                }
-
-                // Swop player
-                if (canRemoveElement)
-                {
-                    player = PickOtherPlayer(player);
                 }
             } while (canRemoveElement);
 
