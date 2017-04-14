@@ -47,6 +47,8 @@
     <Compile Include="Accurate Sorting\Sort.cs" />
     <Compile Include="Accurate Sorting\SortTest.cs" />
     <Compile Include="Beautiful Word\Beautiful.cs" />
+    <Compile Include="Colliding Circles\Collide.cs" />
+    <Compile Include="Colliding Circles\CollideTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Beautiful Word\BeautifulTest.cs" />
     <Compile Include="Utils.cs" />
