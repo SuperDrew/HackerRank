@@ -4,11 +4,11 @@ namespace _31.Zero_Game
 {
     public static class Play
     {
-        public static string Go(int[] values)
-        {
-            var Alice = "Alice";
-            var Bob = "Bob";
+        private const string Alice = "Alice";
+        private const string Bob = "Bob";
 
+        public static string Go(int[] sequence)
+        {
             var player = Alice;
             bool canRemoveElement = false;
             do
@@ -16,10 +16,10 @@ namespace _31.Zero_Game
                 canRemoveElement = false;
                 // Find element that can be removed
                 int indexToRemove = 0;
-                for (int i = 0; i < values.Length - 2; i++)
+                for (int i = 0; i < sequence.Length - 2; i++)
                 {
-                    var leftSideValue = values[i];
-                    var rightSideValue = values[i + 2];
+                    var leftSideValue = sequence[i];
+                    var rightSideValue = sequence[i + 2];
                     if (leftSideValue == 0 && rightSideValue == 0)
                     {
                         indexToRemove = i + 1;
@@ -31,20 +31,25 @@ namespace _31.Zero_Game
                 // Remove index
                 if (canRemoveElement)
                 {
-                    var list = new List<int>(values);
+                    var list = new List<int>(sequence);
                     list.RemoveAt(indexToRemove);
-                    values = list.ToArray();
+                    sequence = list.ToArray();
                 }
 
                 // Swop player
                 if (canRemoveElement)
                 {
-                    player = player == Alice ? Bob : Alice;
+                    player = PickOtherPlayer(player);
                 }
             } while (canRemoveElement);
 
-            string winner = player == Alice ? Bob : Alice;
+            string winner = PickOtherPlayer(player);
             return winner;
+        }
+
+        private static string PickOtherPlayer(string player)
+        {
+            return player == Alice ? Bob : Alice;
         }
     }
 }
